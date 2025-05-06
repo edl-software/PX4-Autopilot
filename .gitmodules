@@ -88,3 +88,4 @@
 [submodule "Tools/simulation/gz"]
 	path = Tools/simulation/gz
 	url = https://github.com/edl-software/PX4-gazebo-models.git
+	branch = main

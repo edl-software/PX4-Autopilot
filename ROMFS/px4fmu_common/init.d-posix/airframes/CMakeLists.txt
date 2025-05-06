@@ -80,6 +80,7 @@ px4_add_romfs_files(
 	4006_gz_px4vision
 	4008_gz_advanced_plane
 	4009_gz_r1_rover
+	4009_gz_r1_rover_lidar
 	4010_gz_x500_mono_cam
 	4011_gz_lawnmower
 	4012_gz_rover_ackermann

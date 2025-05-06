@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# @name Gazebo r1 rover lidar
+#
+# @type Rover
+# @class Rover
+
+PX4_SIM_MODEL=${PX4_SIM_MODEL:=r1_rover_lidar}
+
+. ${R}etc/init.d-posix/airframes/4009_gz_r1_rover
+
+# param set-default SENS_EN_VL53L0X 1

@@ -27,8 +27,8 @@ on:
 jobs:
   group_targets:
     name: Scan for Board Targets
-    # runs-on: ubuntu-latest
-    runs-on: [runs-on,runner=1cpu-linux-x64,image=ubuntu22-full-x64,"run-id=${{ github.run_id }}",spot=false]
+    runs-on: ubuntu-latest
+    # runs-on: [runs-on,runner=1cpu-linux-x64,image=ubuntu22-full-x64,"run-id=${{ github.run_id }}",spot=false]
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
       timestamp: ${{ steps.set-timestamp.outputs.timestamp }}

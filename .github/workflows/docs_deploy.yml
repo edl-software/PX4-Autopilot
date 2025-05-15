@@ -33,7 +33,8 @@ env:
 
 jobs:
   build:
-    runs-on: [runs-on,runner=8cpu-linux-x64,image=ubuntu24-full-x64,"run-id=${{ github.run_id }}",spot=false,extras=s3-cache]
+    runs-on: ubuntu-latest
+    # runs-on: [runs-on,runner=8cpu-linux-x64,image=ubuntu24-full-x64,"run-id=${{ github.run_id }}",spot=false,extras=s3-cache]
     steps:
       - uses: runs-on/action@v1
       - name: Checkout
@@ -68,7 +69,8 @@ jobs:
   deploy:
     if: ${{ github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged) || github.event_name == 'workflow_dispatch' }}
     needs: build
-    runs-on: [runs-on,runner=8cpu-linux-x64,image=ubuntu24-full-x64,"run-id=${{ github.run_id }}",spot=false]
+    runs-on: ubuntu-latest
+    # runs-on: [runs-on,runner=8cpu-linux-x64,image=ubuntu24-full-x64,"run-id=${{ github.run_id }}",spot=false]
 
     steps:
       - name: Download Artifact
@@ -80,7 +82,7 @@ jobs:
       - name: Deploy
         run: |
           git clone --single-branch --branch main --depth 1 https://${{ secrets.PX4BUILTBOT_PERSONAL_ACCESS_TOKEN }}@github.com/PX4/docs.px4.io.git
-          # make it an orphan branch      
+          # make it an orphan branch
           cd docs.px4.io
           CURRENT_DATETIME=$(date +'%Y%m%d_%H_%M')
           git checkout --orphan "${CURRENT_DATETIME}_main"

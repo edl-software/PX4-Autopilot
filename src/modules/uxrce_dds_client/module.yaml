@@ -94,7 +94,8 @@ parameters:
             type: boolean
             category: System
             reboot_required: true
-            default: 1
+            default: 0    # uncomment this line for gazebo simulations
+            # default: 1    # use this value when not running in simulation
 
         UXRCE_DDS_SYNCC:
             description:
